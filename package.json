@@ -1,0 +1,31 @@
+{
+    "name": "bot-b3-monorepo",
+    "private": true,
+    "version": "0.1.0",
+    "description": "Plataforma de trading automatizado para mini-indice B3 com IA, execucao FIX e dashboards profissionais.",
+    "type": "commonjs",
+    "workspaces": [
+        "backend",
+        "frontend"
+    ],
+    "scripts": {
+        "start": "npm run start --workspace backend",
+        "dev:backend": "npm run dev --workspace backend",
+        "start:backend": "npm run start --workspace backend",
+        "dev:frontend": "npm run dev --workspace frontend",
+        "build:frontend": "npm run build --workspace frontend",
+        "test": "npm run test --if-present --workspaces",
+        "lint": "npm run lint --if-present --workspaces"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cfjacobsen/Bot_B3.git"
+    },
+    "bugs": {
+        "url": "https://github.com/cfjacobsen/Bot_B3/issues"
+    },
+    "homepage": "https://github.com/cfjacobsen/Bot_B3#readme",
+    "dependencies": {
+        "prom-client": "^15.1.3"
+    }
+}

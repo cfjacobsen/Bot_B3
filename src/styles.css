@@ -1,0 +1,1 @@
+﻿@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root {\n  color-scheme: dark;\n}\n\nbody {\n  min-height: 100vh;\n}\n

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Trading Bot B3 Enterprise</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <header class="app-header">
+            <h1>Trading Bot B3</h1>
+            <div class="status-indicator" id="system-status-indicator">
+                <span class="status-light"></span>
+                <span id="system-status-text">DESCONECTADO</span>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Card de Métricas Principais -->
+            <div class="card metrics-card">
+                <div class="metric-item">
+                    <h3>Resultado Diário (P&L)</h3>
+                    <p id="daily-pnl" class="neutral-value">R$ 0,00</p>
+                </div>
+                <div class="metric-item">
+                    <h3>Capital Atual</h3>
+                    <p id="current-capital">R$ 0,00</p>
+                </div>
+                <div class="metric-item">
+                    <h3>Taxa de Acerto</h3>
+                    <p id="win-rate">0.00%</p>
+                </div>
+                <div class="metric-item">
+                    <h3>Trades no Dia</h3>
+                    <p id="trade-count">0</p>
+                </div>
+            </div>
+
+            <!-- Card de Controle do Sistema -->
+            <div class="card control-card">
+                <h2>Controle do Sistema</h2>
+                <div class="control-buttons">
+                    <button id="btn-start" class="btn btn-start">▶ INICIAR</button>
+                    <button id="btn-pause" class="btn btn-pause" disabled>❚❚ PAUSAR</button>
+                    <button id="btn-stop" class="btn btn-stop" disabled>■ PARAR</button>
+                </div>
+                <div class="control-settings">
+                    <label for="goal-select">Meta de Risco:</label>
+                    <select id="goal-select">
+                        <option value="CONSERVATIVE">Conservadora</option>
+                        <option value="MODERATE" selected>Moderada</option>
+                        <option value="AGGRESSIVE">Agressiva</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Card de Status do Operador e IA -->
+            <div class="card operator-ai-card">
+                <div class="status-section">
+                    <h2>Operador Ativo</h2>
+                    <div class="status-content">
+                        <strong id="active-operator">N/A</strong>
+                        <p id="operator-reason">Aguardando início do sistema...</p>
+                    </div>
+                </div>
+                <div class="status-section">
+                    <h2>Consenso da IA</h2>
+                    <div class="status-content">
+                        <strong id="ai-bias" class="neutral-value">NEUTRO</strong>
+                        <p id="ai-reason">Aguardando análise...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card do Gráfico -->
+            <div class="card chart-card">
+                <div class="chart-header">
+                    <h2 id="chart-title">WINDFUT</h2>
+                    <div class="price-info">
+                        <span id="current-price">0</span>
+                        <span id="price-change" class="neutral-value">0.00%</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="price-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Card de Logs e Trades -->
+            <div class="card logs-card">
+                <h2>Log de Operações e Eventos</h2>
+                <div id="logs-container">
+                    <!-- Logs serão inseridos aqui via JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Autenticação</h2>
+            <p>Insira seu token de acesso para se conectar ao dashboard.</p>
+            <form id="login-form">
+                <input type="text" id="token-input" placeholder="Cole seu JWT aqui" required>
+                <button type="submit" class="btn btn-start">Conectar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

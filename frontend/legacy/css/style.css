@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1e1e2e;
+    color: #cdd6f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.status-indicator.online {
+    background: #a6e3a1;
+}
+
+.status-indicator.offline {
+    background: #f38ba8;
+}
+
+.control-panel {
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn-success { background: #a6e3a1; color: #1e1e2e; }
+.btn-danger { background: #f38ba8; color: #1e1e2e; }
+.btn-info { background: #89b4fa; color: #1e1e2e; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #313244;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.positive { color: #a6e3a1; }
+.negative { color: #f38ba8; }
+
+.chart-container {
+    background: #313244;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.positions-table {
+    background: #313244;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #45475a;
+}
